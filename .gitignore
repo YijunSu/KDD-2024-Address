@@ -1,0 +1,17 @@
+code/
+__pycache__/
+.ipynb_checkpoints/
+.idea/
+.vscode/
+images/
+datasets/
+boards/
+logs/
+saved_models/
+pretrained_model/
+demo_tests/
+!README.md
+!README.rst
+# test/
+!/docs/
+venv/

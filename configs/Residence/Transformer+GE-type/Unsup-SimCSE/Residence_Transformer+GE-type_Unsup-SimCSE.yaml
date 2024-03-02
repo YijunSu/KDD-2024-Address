@@ -1,0 +1,41 @@
+# 客户端个数
+n_parties: 1
+
+# 各客户端训练数据集: list
+local_train_files:
+  - triplet_residence_train_50k.txt
+
+# 各客户端验证数据集: list
+local_dev_files:
+  - triplet_residence_dev_5k.txt
+
+# 通信轮数：int
+n_comm_round: 200
+
+# 每一轮通信前本地模型训练的轮数：int
+local_epochs: 1
+
+batch_size: 64
+
+lr: 0.00001
+
+# 验证间隔：int, 每dev_interval个batch验证一次
+dev_interval: 100
+
+# 早停轮数：int, 验证指标early_stop_rounds轮未提升时早停
+early_stop_rounds: 5
+
+# 初始化种子
+init_seed: 0
+
+# 训练类型：str, [supervised, unsupervised]
+train_type: unsupervised
+
+# 模型类型：str, [SimCSE、Triplet]
+model_type: SimCSE
+
+# 是否注入地理实体类别
+with_entity_type: True
+
+# 地理实体池化层加入层
+entity_pooler_insert_layer: 0

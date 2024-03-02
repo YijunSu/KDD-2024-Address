@@ -1,0 +1,29 @@
+#job 名称 必填(工作名称必须由小写字母数字字符或'-'组成，并且必须以字母数字字符开始和结束)
+jobName: fed-t-supcse
+#jobType job类型 必填（目前支持batch、pytorch、tensorflow三种类型训练任务）
+jobType: batch
+#训练文件运行指令bash -c 或 python ...
+command:
+- python
+#command:
+#- bash
+#- -c
+#训练文件名称 必填(绝对路径)
+trainerName: /home/chennanye/ICDM-2023-Address/federated_contrastive_learning/main.py
+#训练参数(在此设置模型存储路径和数据集读取路径)
+trainerArgs:
+- --config=Federated/Transformer/Sup-SimCSE/Federated_Transformer_Sup-SimCSE.yaml
+#训练镜像 必填
+Image: dockerhub.mlops.jd.com/notebook-custom/chennanye/cuda11.3.1-cudnn8-devel-ubuntu20.04-py38-jupyter-pytorch1.11icdm2023:75ef8
+#选填，空为从当前notebook中获取 自己填写从页面中个人中心获取
+storageName: chennanye
+#必填，页面个人中心中资源组的英文名
+resourceName: public-resource
+#重启策略 只能配置Never 或者OnFailure 选填
+restartPolicy: Never
+Gpu: 1
+Cpu: 12
+Memory: 48
+restartPolicy: Never
+#gpu型号 nvidia-tesla-p40 nvidia-tesla-v100
+gpuModel: nvidia-tesla-p40

@@ -1,0 +1,49 @@
+# 客户端个数
+n_parties: 2
+
+# 各客户端训练数据集: list
+local_train_files:
+  - train_triplet_residence_600k.txt
+  - train_triplet_institution_600k.txt
+
+# 各客户端验证数据集: list
+local_dev_files:
+  - dev_triplet_residence_600k.txt
+  - dev_triplet_institution_600k.txt
+
+# 通信轮数：int
+n_comm_round: 100
+
+# 每一轮通信前本地模型训练的轮数：int
+local_epochs: 5
+
+batch_size: 64
+
+lr: 0.00001
+
+# 验证间隔：int, 每dev_interval个batch验证一次
+dev_interval: 500
+
+# 早停轮数：int, 验证指标early_stop_rounds轮未提升时早停
+early_stop_rounds: 3
+
+# 初始化种子
+init_seed: 0
+
+# 训练类型：str, [supervised, unsupervised]
+train_type: supervised
+
+# 模型类型：str, [SimCSE、EntitySimCSE]
+model_type: EntitySimCSE
+
+# Bert类型: [BERT-Tiny、BERT-Mini、BERT-Small、BERT-Medium、BERT-Base]
+# BERT-Tiny（L=2,H=128) / BERT-Mini(L=4,H=256) / BERT-Small(L=4,H=512) / BERT-Medium(L=8,H=512) / BERT-Base(L=12,H=768)
+num_hidden_layers: 8
+
+hidden_size: 512
+
+# EntitySimCSE模型Entity Pooling之后transformers的层数
+num_entity_layers: 3
+
+# SimCSE是否使用token_type_ids
+use_token_type: False
